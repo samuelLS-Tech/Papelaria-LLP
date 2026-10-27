@@ -1,8 +1,10 @@
 from flask import Flask 
-app = Flask(__name__)
+
+app = Flask(_name_, static_folder="static", static_url_path="")
 
 @app.route("/")
 def inicio():
-    return "Papelaria Ponto Certo no ar!"
+    return app.send_static_file("index.html")
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
